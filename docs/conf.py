@@ -58,7 +58,7 @@ html_context = {
     'display_github': True,
     'github_user': 'myriadrf',
     'github_repo': 'handbook',
-    'github_version': 'main/' 
+    'github_version': 'master/' 
 }
 
 # This is where we place substitutions, such as for Unicode characters.

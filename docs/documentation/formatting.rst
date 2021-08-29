@@ -19,7 +19,7 @@ Upper limit 10\ :sup:`6`. See note\ :sub:`2`.
 .. note::
    Interpreted text needs to be surrounded by whitespace or punctuation, which
    means that if we don't want a gap, e.g. between ``10`` and ``6``, or between
-   ``note`` and ``2`` we need to escape the whitespace with a backslash.
+   ``note`` and ``2``, we need to escape the whitespace with a backslash.
 
 Non-ASCII Characters
 --------------------
@@ -30,7 +30,7 @@ For example, the right arrow (|rarr|) is inserted by entering ``|rarr|``.  If a
 character is not currently supported, simply look up the Unicode ID and add it
 to substitutions.txt.
 
-Equations (LaTex)
+Equations (LaTeX)
 -----------------
 
 For inline math use this format:
