@@ -14,6 +14,7 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
 
@@ -65,7 +66,7 @@ rst_epilog = """
 .. include:: /substitutions.txt
 """
 
-# Allow same section headings and thus labels o be used across documents.
+# Allow same section headings and thus labels to be used across documents.
 autosectionlabel_prefix_document = True
 
 # Generate SVG format images from LaTeX math embedded in RST documents.
