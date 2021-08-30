@@ -36,7 +36,8 @@ highlight_language = 'console'
 extensions = [
     'sphinx.ext.autosectionlabel',
     'sphinx.ext.intersphinx',
-    'sphinx.ext.imgmath',
+    'sphinx.ext.mathjax',
+    'sphinx-mathjax-offline',
     'sphinx_rtd_theme'
 ]
 
@@ -70,10 +71,12 @@ rst_epilog = """
 autosectionlabel_prefix_document = True
 
 # Generate SVG format images from LaTeX math embedded in RST documents.
-imgmath_image_format = 'svg'
+#imgmath_image_format = 'svg'
 
 # Default size of 12pt for equations is a bit small.
-imgmath_font_size = 16
+#imgmath_font_size = 16
+
+#mathjax_path = 'https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
 
 # -- Options for HTML output -------------------------------------------------
 

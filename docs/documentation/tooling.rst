@@ -6,7 +6,7 @@ Documentation is managed, built and published using:
 * `reStructuredText`_ (RST) content stored in GitHub repositories.
 * `Sphinx`_ documentation generator.
 * `Read the Docs Sphinx Theme`_ for styling.
-* `TeX Live`_ to render LaTeX equations to SVG files.
+* `MathJax`_ to render LaTeX equations.
 * `Netlify`_ for hosting.
 
 When changes are pushed to the git repository this triggers the Netlify build
@@ -28,6 +28,12 @@ benefits:
 Obviously projects such as this one (Community Handbook) that are
 documentation-only, will have only the Sphinx config and content in their repo.
 
+.. note::
+   LaTeX support is currently provided via the ``sphinx.ext.mathjax`` and
+   ``sphinx-mathjax-offline`` Sphinx plugins, which render equations client-side
+   in the browser. This means that if PDF or ePub downloads are configured,
+   any LaTeX equations will be printed literal and not rendered within these. 
+
 Setup
 -----
 
@@ -36,11 +42,11 @@ Python dependencies are installed. These are specified in requirements.txt, whic
 is also used by the Netlify build pipeline. TeX Live is used to convert LaTeX to
 SVG images.
 
-To install git, venv and TeX Live on Ubuntu:
+To install git and venv on Ubuntu:
 
 .. code-block:: bash
 
-    sudo apt install git python3-venv texlive-latex-extra
+    sudo apt install git python3-venv
 
 This only needs to be done once.
 
@@ -93,5 +99,5 @@ software sources or gateware etc., please prefix the git commit message with
 .. _reStructuredText: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 .. _Sphinx: https://www.sphinx-doc.org
 .. _Read the Docs Sphinx theme: https://sphinx-rtd-theme.readthedocs.io/en/stable/
-.. _TeX Live: https://www.tug.org/texlive/
+.. _MathJax: https://www.mathjax.org/
 .. _Netlify: https://www.netlify.com/
