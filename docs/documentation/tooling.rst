@@ -38,15 +38,36 @@ Setup
 -----
 
 The Python venv module is used to create a virtual environment into which the
-Python dependencies are installed. These are specified in requirements.txt, which is also used by the Netlify build pipeline. TeX Live is used to convert LaTeX to SVG images.
+Python dependencies are installed. These are specified in requirements.txt, 
+which is also used by the Netlify build pipeline. TeX Live is used to convert 
+LaTeX to SVG images.
 
 To install git and venv on Ubuntu:
 
-.. code-block:: bash
+.. tabs:: 
 
-    sudo apt install git python3-venv
+   .. code-tab:: bash
+       :caption: Ubuntu 20.04
 
-This only needs to be done once.
+       sudo apt update
+
+       sudo apt install git python3-venv
+
+   .. code-tab:: bash
+       :caption: Ubuntu 22.04+
+
+       sudo add-apt-repository ppa:deadsnakes/ppa
+
+       sudo apt update
+
+       sudo apt install git python3.8 python3.8-venv
+
+This only needs to be done once on each system where documentation is edited.
+
+.. note::
+   At the time of writing Netlify build images only have up to Python 3.8, so 
+   we need to make sure we also use the 3.8 series, hence additional steps are 
+   required with more recent Ubuntu versions.
 
 Then if we wanted to edit the Community Handbook documentation, for example:
 
@@ -56,7 +77,7 @@ Then if we wanted to edit the Community Handbook documentation, for example:
 
     cd handbook/docs
 
-    python3 -m venv venv
+    python3.8 -m venv venv
 
     source venv/bin/activate
 

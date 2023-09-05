@@ -38,7 +38,7 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.mathjax',
     'sphinx-mathjax-offline',
-    'sphinx_tabs.tabs',
+    'sphinx_code_tabs',
     'sphinx_rtd_theme'
 ]
 
