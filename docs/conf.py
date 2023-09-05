@@ -19,11 +19,11 @@ import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
 
 project = 'MyriadRF Community Handbook'
-copyright = '2021, MyriadRF Contributors'
+copyright = '2021, 2023 MyriadRF Contributors'
 author = 'Lime Microsystems'
 
 # The full version, including alpha/beta/rc tags
-release = '21.08'
+release = '23.09'
 
 highlight_language = 'console'
 
@@ -38,6 +38,7 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.mathjax',
     'sphinx-mathjax-offline',
+    'sphinx_tabs.tabs',
     'sphinx_rtd_theme'
 ]
 

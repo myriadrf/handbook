@@ -38,9 +38,7 @@ Setup
 -----
 
 The Python venv module is used to create a virtual environment into which the
-Python dependencies are installed. These are specified in requirements.txt, which
-is also used by the Netlify build pipeline. TeX Live is used to convert LaTeX to
-SVG images.
+Python dependencies are installed. These are specified in requirements.txt, which is also used by the Netlify build pipeline. TeX Live is used to convert LaTeX to SVG images.
 
 To install git and venv on Ubuntu:
 
