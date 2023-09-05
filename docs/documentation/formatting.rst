@@ -1,6 +1,36 @@
 Formatting
 ==========
 
+For general guidance see the `reStructuredText Primer`_ and other online 
+resources.
+
+Details are provided below for MyriadRF conventions.
+
+Sections
+--------
+
+Every Sphinx document has multiple sections or heading levels. Section headers 
+are created by underlining (and optionally overlining) the section title with 
+a punctuation character, at least as long as the text.
+
+Levels are not assigned to specific characters and instead the structure is
+determined from their succession. However, for the sake of consistency across
+projects they should be used in this order:
+
+* ``#`` for title -- with overline, for parts
+* ``*`` for subtitle -- with overline, for chapters
+* ``=``, for sections
+* ``-``, for subsections
+* ``^``, for subsubsections
+* ``"``, for paragraphs
+
+This follows the Python community best practice.
+
+Levels give structure to the document, which is used in navigation and in the
+display in all output formats. 
+
+Regular documents start with a title heading underlined by ``#``. Subtitles are 
+optional. Headings are then marked with ``=`` and ``-`` etc.
 
 Subscript and Superscript
 -------------------------
@@ -33,6 +63,13 @@ to substitutions.txt.
 Equations (LaTeX)
 -----------------
 
+.. note::
+   Where it would be the first use of equations in a project, check and ensure
+   that the ``sphinxcontrib-jsmath`` and ``sphinx-mathjax-offline`` Python 
+   modules are present in ``requirements.txt``, and that the extensions
+   ``sphinx.ext.mathjax`` and ``sphinx-mathjax-offline`` are set up in 
+   ``conf.py``.
+
 For inline math use this format:
 
 .. code-block:: rest
@@ -64,4 +101,5 @@ Which gives:
 
 For further details see the Sphinx `math directive`_.
 
+.. _reStructuredText Primer: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 .. _Math directive: https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#math
