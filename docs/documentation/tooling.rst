@@ -7,7 +7,7 @@ Documentation is managed, built and published using:
 * `Sphinx`_ documentation generator.
 * `Read the Docs Sphinx Theme`_ for styling.
 * `MathJax`_ to render LaTeX equations.
-* `Netlify`_ for hosting.
+* `Netlify`_ for building and hosting HTML.
 
 When changes are pushed to the git repository this triggers the Netlify build
 pipeline and the resulting HTML is hosted via their CDN. However, before this is
@@ -29,13 +29,28 @@ Obviously projects such as this one (Community Handbook) that are
 documentation-only, will have only the Sphinx config and content in their repo.
 
 .. note::
-   LaTeX support is currently provided via the ``sphinx.ext.mathjax`` and
+   HTML LaTeX support is currently provided via the ``sphinx.ext.mathjax`` and
    ``sphinx-mathjax-offline`` Sphinx plugins, which render equations client-side
    in the browser. This means that if PDF or ePub downloads are configured,
    any LaTeX equations will be printed literal and not rendered within these. 
 
+The same tooling can be used to generate PDF and eBook versions of the 
+documentation and this just requires extra build dependencies to be installed.
+
+.. note:: 
+   At the time of writing the Netlify build images do not contain the software
+   required for building PDF or eBook documentation and until a better solution 
+   is found, where this is required it should be built on a local machine and then 
+   copied to the destination.
+
 Setup
 -----
+
+Basic
+^^^^^
+
+The following basic setup steps should be completed regardless of whether you
+want to build HTML, PDF, eBook documentation or all three.
 
 The Python venv module is used to create a virtual environment into which the
 Python dependencies are installed. These are specified in requirements.txt, 
@@ -86,6 +101,17 @@ Then if we wanted to edit the Community Handbook documentation, for example:
 The above steps need would to be carried out for each project where we want to
 edit documentation.
 
+PDF/eBook
+^^^^^^^^^
+
+The following additional setup steps should be completed if you wish to build PDF
+and/or eBook documentation.
+
+.. code-block:: bash
+
+   sudo apt install fonts-freefont-otf latexmk texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra texlive-lang-greek \ 
+   tex-gyre texlive-xetex
+
 Use
 ---
 
@@ -93,9 +119,16 @@ Simply edit the RST content and then to build:
 
 .. code-block:: bash
 
-   make html
+   make html|latexpdf 
 
-Following which the generated HTML can be found in the ``_build`` directory.
+.. note::
+   For some reason it can be neccesary to execute the command twice when
+   generating PDFs, possibly as a result of the the way LaTeX build works.
+
+Following which the generated documentation can be found in:
+
+* ``_build/html``
+* ``_build/latex`` (PDF)
 
 With project repositories that contain documentation and other outputs, such as
 software sources or gateware etc., please prefix the git commit message with
