@@ -10,22 +10,21 @@ release = 'latest'
 # E.g. 'master/docs/', 'main/docs/' or 'docs/docs/' etc.
 
 github_repo = 'handbook'
-github_repo_path= 'master/docs/'
+github_repo_path = 'master/docs/'
 
 # The default language for syntax highlighting in code blocks.
 # This can be overridden using the ".. code-block::" directive.
 highlight_language = 'console'
 
 # Intersphinx mapping
-# For MyriadRF internal projects list the project slug only.
-# For external projects specify the reference and the full URL.
-# To minimise build time only include projects that are referenced!
+# To minimise build time only include projects that are referenced.
 intersphinx_internal = [
-    # 'limedfb',
+#    'suiteng',
 ]
-intersphinx_external = {
-    # 'numpy': 'https://numpy.org/doc/stable/',
-}
+
+intersphinx_external = [
+#    'sphinx',
+]
 
 # Set to True if the project is archived.
 archived = False
