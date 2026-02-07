@@ -1,5 +1,5 @@
 Documentation
-=============
+#############
 
 Here you can find details of how to contribute to project documentation.
 
@@ -9,3 +9,6 @@ Here you can find details of how to contribute to project documentation.
   
    tooling
    formatting
+   structure
+
+

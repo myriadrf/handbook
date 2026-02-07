@@ -1,7 +1,7 @@
 # Copyright date and release version should be updated accordingly!
 
 project = 'MyriadRF Community Handbook'
-copyright = '2021-2025, MyriadRF Contributors'
+copyright = '2021-2026, MyriadRF Contributors'
 author = 'MyriadRF Contributors'
 release = 'latest'
 
@@ -19,7 +19,7 @@ highlight_language = 'console'
 # Intersphinx mapping
 # To minimise build time only include projects that are referenced.
 intersphinx_internal = [
-#    'suiteng',
+    'sdrxtrx',
 ]
 
 intersphinx_external = [

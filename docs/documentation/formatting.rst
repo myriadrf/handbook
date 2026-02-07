@@ -1,5 +1,5 @@
 Formatting
-==========
+##########
 
 For general guidance see the `reStructuredText Primer`_ and other online 
 resources.
@@ -7,7 +7,7 @@ resources.
 Details are provided below for MyriadRF conventions.
 
 Sections
---------
+********
 
 Every Sphinx document has multiple sections or heading levels. Section headers 
 are created by underlining (and optionally overlining) the section title with 
@@ -33,7 +33,7 @@ Regular documents start with a title heading underlined by ``#``. Subtitles are
 optional. Headings are then marked with ``=`` and ``-`` etc.
 
 Links
------
+*****
 
 Links can be defined which are one of:
 
@@ -45,7 +45,7 @@ It is important to use the correct type of link for the context, as this ensures
 that navigation and cross-referencing works correctly, and simplifies maintenance should URLs change. In short, use: internal links where possible, intersphinx links where the target is another Sphinx project, and external links only when neither of the first two options are possible.
 
 Internal
-^^^^^^^^
+========
 
 Internal cross-references can be created using the various Sphinx roles, such as
 ``:ref:`` and ``:doc:`` etc. See the Sphinx documentation for more details.
@@ -54,7 +54,7 @@ Internal cross-references can be created using the various Sphinx roles, such as
    By directly referencing documents using the ``:doc:`` role, if the target document is subsequently moved or renamed, the link will break and will need to be updated manually.
 
 Intersphinx
-^^^^^^^^^^^
+===========
 
 Intersphinx works by using a key to reference a remote Sphinx *objects.inv* inventory file, which contains details of all the documents and sections in the target project, and is used at build time to render links. 
 
@@ -111,14 +111,14 @@ Would make the text *FPGA gateware for the LimeSDR family of boards* a link to t
    If documents in other projects are directly referenced using intersphinx and the ``:doc:`` role, and the target document is subsequently moved or renamed, the link will break and will need to be updated manually.   
 
 External
-^^^^^^^^
+========
 
 There are multiple places where external links can be defined: at the document, project and global levels.
 
 .. note::
    Before defining a new external link, check whether it has already been defined elsewhere!
 
-1. At the document level.
+1. **At the document level**
 
 Here it is possible to define links which are only used within the current document. While they can either be defined inline or at the bottom of the document, for consistency and ease of maintenance they should always be defined at the bottom. E.g.:
 
@@ -130,7 +130,7 @@ Here it is possible to define links which are only used within the current docum
 
    .. _FDTI website: https://www.ftdichip.com/
 
-2. At the project level.
+2. **At the project level**
 
 Here links can be defined which may be used anywhere within the current Sphinx project. These are defined in the project ``docs/extlinks.conf`` using the same format as for document-level links. E.g.:   
 
@@ -138,17 +138,47 @@ Here links can be defined which may be used anywhere within the current Sphinx p
 
    .. _FDTI website: https://www.ftdichip.com/
 
-This file is then effectively appended to every document when Sphinx builds the project, hence the links can be used anywhere within it.
+This file is then appended to every document when Sphinx builds the project, hence the links can be used anywhere within it.
 
-3. Globally for all Sphinx projects.
+3. **Globally for all Sphinx projects**
 
 Where a link is likely to be used in multiple Sphinx projects, it can be defined via the ``assets/sphinx/extlinks.conf`` file in the `static-assets repository`_. This uses the same format as the project-level *extlinks.conf* file and as with this, it is appended to every document.
 
 .. warning::
    Care should be taken when defining global links, to ensure that they are indeed likely to be used in multiple projects, otherwise it just adds unnecessary bloat and may increase build times. Furthermore, errors here may break the build for multiple projects.
 
+Images
+******
+
+For consistency images should always be included using the :code:`figure` directive, rather than the simpler :code:`image` directive.
+
+Images should be stored in the ``docs/images`` directory of the relevant project, and not be distributed across multiple directories or referenced in other projects. This ensures that they are easy to find and maintain. 
+
+Images are then referenced using an absolute path, e.g. ``/images/myimage.png``. 
+
+Tables
+******
+
+There are four different ways to create tables in reStructuredText, but for consistency and ease of maintenance, the :code:`list-table` directive should be used. The only exception to this is where a table is generated from a CSV file, in which case the :code:`csv-table` directive should be used.
+
+.. warning::
+   While grid and simple tables may be quicker to write, they are more difficult to maintain and update, and are not as visually clear in the source files. Therefore they should not be used!
+
+Some earlier projects may contain examples of the other table formats, but these should not be used for new documentation. Where possible, existing tables in older documentation should be converted to the list-table format when they are updated for other reasons.
+
+Numbering
+*********
+
+The current policy is that:
+
+1. Sections are not numbered;
+2. Figures and tables are numbered, but not prefixed with the section number;
+3. Numbering is unique to the document, but not unique across the project or globally.
+
+A Sphinx project may contain multiple documents, such as an Introduction, User Guide and Hardware Reference. In such cases numbering will be restarted for each document, so as to make it easier to maintain and update them independently. However, within each document, numbering will be unique, so that there are no duplicate figure or table numbers.
+
 Subscript and Superscript
--------------------------
+*************************
 
 Subscript and superscript characters can be generated using the ``:sub:`` and
 ``:sup:`` roles. For example:
@@ -167,13 +197,13 @@ Upper limit 10\ :sup:`6`. See note\ :sub:`2`.
    ``note`` and ``2``, we need to escape the whitespace with a backslash.
 
 Non-ASCII Characters
---------------------
+********************
 
 Non-ASCII characters can be inserted by using substitutions. For example, the right arrow (|rarr|) is inserted by entering ``|rarr|``.
 
 Substitutions are defined in two places:
 
-1. At the project level.
+1. **At the project level**
 
 Substitutions for use anywhere within the current Sphinx project only are configured via the file ``docs/substitutions.conf``. For example, to be able to insert a cat emoji using ``|cat|``, we would add the following line:
 
@@ -183,7 +213,7 @@ Substitutions for use anywhere within the current Sphinx project only are config
 
 Where possible a standard name should be used, such as the HTML entity name or Unicode character name.
 
-2. Globally for all Sphinx projects.
+2. **Globally for all Sphinx projects**
 
 Where a substitution is likely to be used in multiple Sphinx projects, it can be defined via the ``assets/sphinx/substitutions.conf`` file in the `static-assets repository`_. This uses the same format as the project-level ``substitutions.conf`` file and as with this, it is appended to every document.
 
@@ -191,7 +221,7 @@ Where a substitution is likely to be used in multiple Sphinx projects, it can be
    In general it is preferable to update the global substitutions, so as to avoid duplication and inconsistencies between projects. 
 
 Equations (LaTeX)
------------------
+*****************
 
 For inline math use this format:
 
@@ -223,7 +253,6 @@ Which gives:
    (a - b)^2 = a^2 - 2ab + b^2
 
 For further details see the Sphinx `math directive`_.
-
 
 
 

@@ -1,5 +1,5 @@
 Tooling
-=======
+#######
 
 Documentation is authored, built and published using:
 
@@ -43,10 +43,10 @@ documentation and this just requires extra build dependencies to be installed.
    PDF and eBook styling has not been configured yet and and the CI build pipelines have not been set up to generate these formats.
 
 Setup
------
+*****
 
 Basic
-^^^^^
+=====
 
 The following basic setup steps should be completed regardless of whether you
 want to build HTML, PDF, eBook documentation or all three.
@@ -96,7 +96,7 @@ The generated documentation can be found in:
 * ``_build/html``
 
 PDF/eBook
-^^^^^^^^^
+=========
 
 The following additional setup steps should be completed if you wish to build PDF and/or eBook documentation. This assumes that *npm run init* has already been run, or the Python virtual environment has otherwise been created and dependencies installed.
 
@@ -128,7 +128,7 @@ software sources or gateware etc., please prefix the git commit message with
 "Docs: " so that it is clear that the commit pertains to documentation only.
 
 Updating
-^^^^^^^^
+========
 
 The Python dependencies may be updated from time to time, which might result in local builds failing if your virtual environment is out of date. The cleanest way to resolve this is to delete the existing virtual environment and re-run *npm run init*:
 
